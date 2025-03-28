@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>append vs textContent vs innerHTML</title>
+  <style>
+    #box {
+      border: 2px solid #333;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>append vs textContent vs innerHTML 비교</h1>
+
+  <button onclick="useAppend()">append()</button>
+  <button onclick="useTextContent()">textContent</button>
+  <button onclick="useInnerHTML()">innerHTML</button>
+  <button onclick="clearBox()">내용 지우기</button>
+
+  <div id="box">
+    <strong>📦 여기에 추가됩니다</strong>
+  </div>
+
+  <script>
+    function useAppend() {
+      const box = document.getElementById('box');
+      const span = document.createElement('span');
+      span.textContent = '🟢 append: <b>굵게</b> 안됨 | ';
+      box.append(span);
+    }
+
+    function useTextContent() {
+      const box = document.getElementById('box');
+      box.textContent += '🔴 textContent: <b>태그</b> 무시됨 | ';
+    }
+
+    function useInnerHTML() {
+      const box = document.getElementById('box');
+      box.innerHTML += '🔵 innerHTML: <b>굵게</b> 됨 | ';
+    }
+
+    function clearBox() {
+      const box = document.getElementById('box');
+      box.innerHTML = '<strong>📦 여기에 추가됩니다</strong>';
+    }
+  </script>
+</body>
+</html>
