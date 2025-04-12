@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>버튼 클릭시 Fade In</title>
+  <style>
+    .fade-box {
+      opacity: 0;
+      transition: opacity 1.5s ease-in;
+    }
+
+    .fade-in {
+      opacity: 1;
+    }
+
+    #fade-target {
+      width: 300px;
+      height: 100px;
+      background-color: lightblue;
+      margin-top: 20px;
+      padding: 20px;
+      text-align: center;
+      line-height: 60px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="fadeIn()">클릭하면 나타납니다</button>
+
+  <div id="fade-target" class="fade-box">
+    👋 안녕하세요! 저는 페이드 인 박스입니다.
+  </div>
+
+  <script>
+    function fadeIn() {
+      const target = document.getElementById("fade-target");
+      target.classList.add("fade-in");
+    }
+  </script>
+
+</body>
+</html>
